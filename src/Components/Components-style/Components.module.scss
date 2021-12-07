@@ -1,0 +1,186 @@
+@import './colors';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 380px;
+  padding: 5px 18px;
+  border-radius: 7px;
+}
+
+.addBtn {
+  @extend .submitBtn;
+}
+
+.topSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.resultSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px 0;
+  margin: 10px 0;
+
+  .expense,
+  .income {
+    width: 40%;
+    padding: 2px 10px 10px;
+    height: 70px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-direction: column;
+    border: 2px solid;
+    border-radius: 6px;
+
+    span {
+      align-self: center;
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
+
+  .income {
+    border-color: $green_600;
+
+    span {
+      color: $emerald_600;
+    }
+  }
+
+  .expense {
+    border-color: $red_600;
+
+    span {
+      color: $red_600;
+    }
+  }
+}
+
+.balanceValue {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.transActionForm {
+  padding: 12px;
+  border: 2px solid $purple_700;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.inputValue,
+.inputDesc {
+  width: 300px;
+  margin: 5px;
+  padding: 7px;
+  border: none;
+  background-color: $purple_100;
+  border-radius: 3px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    font-weight: 500;
+    font-size: 12px;
+  }
+}
+
+.maxBalance {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: $green_600;
+}
+
+.minBalance {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: $red_600;
+}
+
+.balance {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: black !important;
+}
+
+.types {
+  align-self: flex-start;
+  margin: 15px 5px 20px;
+}
+
+.submitBtn {
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+
+}
+
+.transactionsSearch {
+  width: 100%;
+  margin: 0 0 10px;
+  background-color: $gray_100;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 10px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.expSections,
+.incSections {
+  display: inline-block;
+  width: 100%;
+  border-right: 3px solid $red_600;
+  background-color: $red_0;
+  padding: 10px 10px;
+  margin: 5px 0;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+  .expSectionDesc,
+  .incSectionDesc {
+    width: 200px;
+    overflow-wrap: anywhere;
+  }
+
+  .expSectionValue,
+  .incSectionValue {
+    width: 100px;
+    color: $red_500;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow-wrap: anywhere;
+  }
+}
+
+.incSections {
+  border-right: 3px solid $green_600;
+  background-color: $green_100;
+
+  .incSectionValue {
+    color: $green_500;
+  }
+}

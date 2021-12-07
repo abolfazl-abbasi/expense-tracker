@@ -1,0 +1,259 @@
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-width: 380px;
+  padding: 5px 18px;
+  border-radius: 7px;
+}
+
+.topSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 0;
+}
+
+.resultSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 10px 0;
+  margin: 10px 0;
+}
+
+.resultSection .expense,
+.resultSection .income {
+  width: 40%;
+  padding: 2px 10px 10px;
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 2px solid;
+  border-radius: 6px;
+}
+
+.resultSection .expense span,
+.resultSection .income span {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.resultSection .income {
+  border-color: #16A34A;
+}
+
+.resultSection .income span {
+  color: #059669;
+}
+
+.resultSection .expense {
+  border-color: #DC2626;
+}
+
+.resultSection .expense span {
+  color: #DC2626;
+}
+
+.balanceValue {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.transActionForm {
+  padding: 12px;
+  border: 2px solid #7E22CE;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.inputValue,
+.inputDesc {
+  width: 300px;
+  margin: 5px;
+  padding: 7px;
+  border: none;
+  background-color: #F3E8FF;
+  border-radius: 3px;
+}
+
+.inputValue:focus,
+.inputDesc:focus {
+  outline: none;
+}
+
+.inputValue::-webkit-input-placeholder,
+.inputDesc::-webkit-input-placeholder {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.inputValue:-ms-input-placeholder,
+.inputDesc:-ms-input-placeholder {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.inputValue::-ms-input-placeholder,
+.inputDesc::-ms-input-placeholder {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.inputValue::placeholder,
+.inputDesc::placeholder {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.maxBalance {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #16A34A;
+}
+
+.minBalance {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #DC2626;
+}
+
+.balance {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: black !important;
+}
+
+.types {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin: 15px 5px 20px;
+}
+
+.submitBtn, .addBtn {
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.transactionsSearch {
+  width: 100%;
+  margin: 0 0 10px;
+  background-color: #F1F5F9;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 10px;
+}
+
+.transactionsSearch:focus {
+  outline: none;
+}
+
+.expSections,
+.incSections {
+  display: inline-block;
+  width: 100%;
+  border-right: 3px solid #DC2626;
+  background-color: #FEF2F2;
+  padding: 10px 10px;
+  margin: 5px 0;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.expSections .expSectionDesc,
+.expSections .incSectionDesc,
+.incSections .expSectionDesc,
+.incSections .incSectionDesc {
+  width: 200px;
+  overflow-wrap: anywhere;
+}
+
+.expSections .expSectionValue,
+.expSections .incSectionValue,
+.incSections .expSectionValue,
+.incSections .incSectionValue {
+  width: 100px;
+  color: #EF4444;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  overflow-wrap: anywhere;
+}
+
+.incSections {
+  border-right: 3px solid #16A34A;
+  background-color: #DCFCE7;
+}
+
+.incSections .incSectionValue {
+  color: #22C55E;
+}
+/*# sourceMappingURL=Components.module.css.map */
