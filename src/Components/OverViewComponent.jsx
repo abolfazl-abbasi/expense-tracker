@@ -4,7 +4,6 @@ import TransActionForm from "./TransActionForm";
 
 const OverViewComponent = ({ expense, income, addTransAction }) => {
   const [isShow, setIsShow] = useState(false);
-  console.log(addTransAction);
   return (
     <>
       <div className={`${styles.topSection}`}>
