@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 import styles from "./Components-style/Components.module.css";
 
 const TransActionForm = ({ addTransAction }) => {
@@ -10,21 +12,28 @@ const TransActionForm = ({ addTransAction }) => {
 
   const handleValue = (e) => {
     if (typeof Number(formValues.value) !== "number") {
-      alert("Please Enter Number in Your Input! 😉");
+      Swal.fire("404!", "Please Enter Number in Your Input!", "error");
     }
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formValues.desc === "" || formValues.value === "" || formValues.type === "") {
-      return alert("Please Field Any Inputs! 😄");
+      return Swal.fire("404!", "Please Fill in Any Inputs!", "error");
     }
-    addTransAction(formValues);
-    setFormValues({
-      desc: "",
-      value: "",
-      type: "expense",
-    });
+    try {
+      // await axios.post("", formValues);
+      await addTransAction(formValues);
+      // const { data } = await axios.get("");
+      // console.log(data);
+      setFormValues({
+        desc: "",
+        value: "",
+        type: "expense",
+      });
+    } catch (error) {
+      // console.log(error);
+    }
   };
 
   return (

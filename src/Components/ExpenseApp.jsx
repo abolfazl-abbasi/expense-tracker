@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import styles from "./Components-style/Components.module.css";
 import OverViewComponent from "./OverViewComponent";
@@ -8,12 +9,31 @@ const ExpenseApp = () => {
   const [showTransActions, setShowTransActions] = useState([...transActions]);
   const [expense, setExpense] = useState(0);
   const [income, setIncome] = useState(0);
-  const handleTransAction = (formValues) => {
-    const data = { ...formValues, _id: Date.now().toString(16).slice(2, 10) };
-    setTransActions([...transActions, data]);
+  const [transactionId, setTransactionId] = useState("");
+
+  useEffect(() => {
+    handleStart();
+  }, []);
+
+  const handleStart = async () => {
+    const { data } = await axios.get("/transactions");
+    setTransActions([...data]);
   };
-  const handleDelete = (e) => {
-    setTransActions(transActions.filter((t) => t._id !== e._id));
+
+  const handleTransAction = async (formValues) => {
+    const trans = await { ...formValues, id: Math.round(Math.random() * 1000) };
+    await axios.post("/transactions", trans);
+    const { data } = await axios.get("/transactions");
+    setTransActions([...data]);
+    setTransactionId(trans.id);
+    if (trans.id) {
+      console.log(transactionId);
+    }
+  };
+  const handleDelete = async (e) => {
+    await axios.delete(`/transactions/${e.id}`);
+    setTransActions(transActions.filter((t) => t.id !== e.id));
+    console.log(transactionId);
   };
   const handleSearch = (e) => {
     const transActionUpdate = [...transActions];
@@ -36,7 +56,12 @@ const ExpenseApp = () => {
     <>
       <section className={`${styles.container}`}>
         <OverViewComponent addTransAction={handleTransAction} expense={expense} income={income} />
-        <TransActionsComponent onSearch={handleSearch} transActions={showTransActions} onDelete={handleDelete} />
+        <TransActionsComponent
+          onStart={handleStart}
+          onSearch={handleSearch}
+          transActions={showTransActions}
+          onDelete={handleDelete}
+        />
       </section>
     </>
   );

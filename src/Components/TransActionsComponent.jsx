@@ -12,7 +12,7 @@ const TransActionComponent = ({ transActions, onDelete, onSearch }) => {
             <section
               onDoubleClick={() => onDelete(t)}
               className={`${t.type === "expense" ? styles.expSections : styles.incSections}`}
-              key={t._id}
+              key={t.id}
             >
               <div className={`${t.type === "expense" ? styles.expSectionDesc : styles.incSectionDesc}`}>{t.desc}</div>
               <div className={`${t.type === "expense" ? styles.expSectionValue : styles.incSectionValue}`}>${t.value}</div>
