@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import styles from "./Components-style/Components.module.css";
+import { toast } from "react-toastify";
 
 const TransActionForm = ({ addTransAction }) => {
   const [formValues, setFormValues] = useState({
@@ -22,17 +22,14 @@ const TransActionForm = ({ addTransAction }) => {
       return Swal.fire("404!", "Please Fill in Any Inputs!", "error");
     }
     try {
-      // await axios.post("", formValues);
       await addTransAction(formValues);
-      // const { data } = await axios.get("");
-      // console.log(data);
       setFormValues({
         desc: "",
         value: "",
         type: "expense",
       });
     } catch (error) {
-      // console.log(error);
+      toast.error("Error to Set Transactions!!");
     }
   };
 

@@ -26,14 +26,10 @@ const ExpenseApp = () => {
     const { data } = await axios.get("/transactions");
     setTransActions([...data]);
     setTransactionId(trans.id);
-    if (trans.id) {
-      console.log(transactionId);
-    }
   };
   const handleDelete = async (e) => {
     await axios.delete(`/transactions/${e.id}`);
     setTransActions(transActions.filter((t) => t.id !== e.id));
-    console.log(transactionId);
   };
   const handleSearch = (e) => {
     const transActionUpdate = [...transActions];
